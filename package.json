@@ -20,6 +20,7 @@
     "homepage": "https://github.com/GuilhermeQSS/trabalhoLP1#readme",
     "dependencies": {
         "bootstrap": "^5.3.6",
+        "bootstrap-icons": "^1.13.1",
         "express": "^5.1.0"
     }
 }
