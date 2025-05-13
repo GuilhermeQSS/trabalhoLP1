@@ -25,6 +25,10 @@ function troca4 (){
     window.location.href = "http://localhost:3000/signup.html";
 
 }
+function troca666 (){
+    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+
+}
 
 // function show(){
 //     const impdivtudo = document.getElementById("divtudo");
