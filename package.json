@@ -19,6 +19,7 @@
     },
     "homepage": "https://github.com/GuilhermeQSS/trabalhoLP1#readme",
     "dependencies": {
+        "bootstrap": "^5.3.6",
         "express": "^5.1.0"
     }
 }
