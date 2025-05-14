@@ -7,7 +7,6 @@ const port = 3000;
 
 server.use(
     session({
-        secret: "fdsfdsfds",
         resave: true,
         saveUninitialized: false,
         cookie: {
