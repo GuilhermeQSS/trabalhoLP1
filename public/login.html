@@ -3,19 +3,30 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+        <link
+            rel="shortcut icon"
+            href="/IMG/FlechaJoJo.png"
+            type="image/x-icon" />
         <link
             rel="stylesheet"
-            href="./bibliotecas/bootstrap/dist/css/bootstrap.min.css" />
-        <link
-            rel="stylesheet"
-            href="./bibliotecas/bootstrap-icons/font/bootstrap-icons.min.css" />
-        <title>[Nome da marca]</title>
+            href="/bootstrap-icons/font/bootstrap-icons.min.css" />
+        <title>JoJoStore</title>
     </head>
-    <body>
+    <body class="bg-black">
         <header>
             <nav class="navbar navbar-expand-sm navbar-dark bg-black">
                 <div class="container">
-                    <a class="navbar-brand" href="index.html">[Marca]</a>
+                    <a
+                        class="navbar-brand d-flex align-items-center"
+                        href="index.html">
+                        <img
+                            src="/IMG/FlechaJoJo.png"
+                            alt="Logo"
+                            style="height: 40px"
+                            class="me-2" />
+                        JoJoStore
+                    </a>
                     <button
                         class="navbar-toggler d-lg-none"
                         type="button"
@@ -33,11 +44,15 @@
                                     class="nav-link"
                                     href="index.html"
                                     aria-current="page">
+                                    <i class="bi bi-house"></i>
                                     Home
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Comprar</a>
+                                <a class="nav-link" href="#">
+                                    <i class="bi bi-bag"></i>
+                                    Produtos
+                                </a>
                             </li>
                         </ul>
                         <ul class="navbar-nav">
@@ -55,7 +70,7 @@
                 </div>
             </nav>
         </header>
-        <main class="d-flex bg-dark text-light" style="min-height: 80.9dvh">
+        <main class="d-flex min-vh-100 bg-dark text-light">
             <form
                 class="m-auto bg-black p-5 rounded-5"
                 action="/login"
@@ -84,7 +99,11 @@
                         name="senha"
                         id="senha" />
                 </div>
-                <button type="submit" class="btn btn-primary">Entrar</button>
+                <button type="submit" class="btn btn-primary mb-3">Entrar</button>
+                <p class="m-0">
+                    Não possui conta?
+                    <a href="cadastro.html">Cadastrar</a>
+                </p>
             </form>
         </main>
         <footer class="p-3 bg-black text-light">
@@ -96,5 +115,5 @@
             </div>
         </footer>
     </body>
-    <script src="./bibliotecas/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </html>

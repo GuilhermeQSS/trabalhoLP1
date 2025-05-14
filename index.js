@@ -1,6 +1,6 @@
 import express from "express";
 import session from "express-session";
-import verificacaoAdmin from "./JS/seguranca.js";
+import verificacaoAdmin from "./recursos/JS/seguranca.js";
 const server = express();
 const host = "0.0.0.0";
 const port = 3000;
@@ -17,7 +17,7 @@ server.use(
     })
 );
 server.use(express.urlencoded({ extended: true }));
-
+server.use(express.static("./recursos"));
 server.use(express.static("./public"));
 server.get("/");
 server.post("/login", (req, res) => {
@@ -31,7 +31,7 @@ server.post("/login", (req, res) => {
     //  <código>
     //  res.redirect();
     //}
-    res.redirect("/login.html");//Exibir mensagem que o usuario ou o email estão errados
+    res.redirect("/login.html"); //Exibir mensagem que o usuario ou o email estão errados
 });
 server.get("/deslogar", (req, res) => {
     req.session.destroy();

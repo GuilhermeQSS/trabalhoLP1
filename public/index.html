@@ -4,18 +4,29 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
-            rel="stylesheet"
-            href="./bibliotecas/bootstrap/dist/css/bootstrap.min.css" />
+            rel="shortcut icon"
+            href="/IMG/FlechaJoJo.png"
+            type="image/x-icon" />
+        <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
         <link
             rel="stylesheet"
-            href="./bibliotecas/bootstrap-icons/font/bootstrap-icons.min.css" />
-        <title>[Nome da marca]</title>
+            href="/bootstrap-icons/font/bootstrap-icons.min.css" />
+        <title>JoJoStore</title>
     </head>
-    <body>
+    <body class="bg-black">
         <header>
             <nav class="navbar navbar-expand-sm navbar-dark bg-black">
                 <div class="container">
-                    <a class="navbar-brand" href="index.html">[Marca]</a>
+                    <a
+                        class="navbar-brand d-flex align-items-center"
+                        href="index.html">
+                        <img
+                            src="/IMG/FlechaJoJo.png"
+                            alt="Logo"
+                            style="height: 40px"
+                            class="me-2" />
+                        JoJoStore
+                    </a>
                     <button
                         class="navbar-toggler d-lg-none"
                         type="button"
@@ -33,6 +44,7 @@
                                     class="nav-link active"
                                     href="index.html"
                                     aria-current="page">
+                                    <i class="bi bi-house"></i>
                                     Home
                                     <span class="visually-hidden">
                                         (current)
@@ -40,7 +52,10 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Comprar</a>
+                                <a class="nav-link" href="#">
+                                    <i class="bi bi-bag"></i>
+                                    Produtos
+                                </a>
                             </li>
                         </ul>
                         <ul class="navbar-nav">
@@ -55,14 +70,90 @@
                 </div>
             </nav>
         </header>
-        <main class="d-flex flex-column text-light bg-dark" style="min-height: 80.9dvh;">
+        <main class="d-flex min-vh-100 flex-column text-light bg-dark">
             <div class="p-3 m-5 rounded-5 bg-black">
-                <h1>Olá</h1>
-                <p>Seja bem vindo</p>
+                <h1>Bem-vindo à JoJoStore!</h1>
+                <hr />
+                <p class="fs-5">
+                    Está pronto para embarcar em uma aventura extraordinária?
+                    Aqui na
+                    <strong>JoJoStore</strong>
+                    , você encontra tudo o que precisa para liberar seu Stand
+                    com estilo!
+                </p>
+                <p class="fs-5">
+                    Roupas icônicas, acessórios lendários e produtos exclusivos
+                    inspirados no universo de
+                    <em>JoJo’s Bizarre Adventure</em>
+                    . Seja um verdadeiro Joestar com visual à altura.
+                </p>
             </div>
-            <!-- divs com informações sobre a empresa ficticia -->
             <div class="p-3 m-5 rounded-5 bg-black">
-                <h1>Site em construção</h1>
+                <h1>Veja nosso catálogo</h1>
+                <hr />
+                <div class="d-flex justify-content-around">
+                    <div class="card bg-dark text-light" style="width: 18rem">
+                        <img
+                            src="/IMG/camiseta_jotaro.jpg"
+                            class="card-img-top"
+                            alt="Camiseta Jotaro" />
+                        <div class="card-body">
+                            <h5 class="card-title">Camiseta Jotaro Kujo</h5>
+                            <p class="card-text">
+                                Vista-se como um verdadeiro Stand User com essa
+                                camiseta estilosa inspirada no Jotaro.
+                                Disponível do P ao GG.
+                            </p>
+                            <a href="#" class="card-link text-warning">
+                                Ver detalhes
+                            </a>
+                            <a href="#" class="card-link text-warning">
+                                Comprar
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Boné -->
+                    <div class="card bg-dark text-light" style="width: 18rem">
+                        <img
+                            src="/IMG/bone_dio.jpg"
+                            class="card-img-top"
+                            alt="Boné Dio Brando" />
+                        <div class="card-body">
+                            <h5 class="card-title">Boné Dio Brando</h5>
+                            <p class="card-text">
+                                "ZA WARUDO!" — Estilo e poder combinados nesse
+                                boné premium com bordado dourado inspirado no
+                                vilão mais icônico da série.
+                            </p>
+                            <a href="#" class="card-link text-warning">
+                                Ver detalhes
+                            </a>
+                            <a href="#" class="card-link text-warning">
+                                Comprar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card bg-dark text-light" style="width: 18rem">
+                        <img
+                            src="/IMG/pingente_flecha.jpg"
+                            class="card-img-top"
+                            alt="Pingente Flecha JoJo" />
+                        <div class="card-body">
+                            <h5 class="card-title">Pingente Flecha Stand</h5>
+                            <p class="card-text">
+                                Um acessório místico e elegante. Ideal para quem
+                                deseja ativar seu Stand interior com estilo.
+                            </p>
+                            <a href="#" class="card-link text-warning">
+                                Ver detalhes
+                            </a>
+                            <a href="#" class="card-link text-warning">
+                                Comprar
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         <footer class="p-3 bg-black text-light">
@@ -74,5 +165,5 @@
             </div>
         </footer>
     </body>
-    <script src="./bibliotecas/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </html>
