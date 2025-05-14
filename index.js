@@ -22,7 +22,7 @@ server.use(express.static("./public"));
 server.get("/");
 server.post("/login", (req, res) => {
     const { email, senha } = req.body;
-    if (email == "admin" && senha == "admin") {
+    if (email == "admin@gmail.com" && senha == "admin") {
         req.session.verificado = true;
         res.redirect("/admin.html");
     }
@@ -33,13 +33,12 @@ server.post("/login", (req, res) => {
     //}
     res.redirect("/login.html");//Exibir mensagem que o usuario ou o email estão errados
 });
-server.get("/deslogar",(req,res)=>{
+server.get("/deslogar", (req, res) => {
     req.session.destroy();
     res.redirect("/login.html");
 });
 
 server.use(verificacaoAdmin, express.static("./private"));
-
 
 server.listen(port, host, () => {
     console.log(`http://localhost:${port}`);
