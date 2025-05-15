@@ -11,7 +11,7 @@
         <link
             rel="stylesheet"
             href="/bootstrap-icons/font/bootstrap-icons.min.css" />
-        <title>JoJoStore</title>
+        <title>JoJo'Store</title>
     </head>
     <body class="bg-black">
         <header>
@@ -25,7 +25,7 @@
                             alt="Logo"
                             style="height: 40px"
                             class="me-2" />
-                        JoJoStore
+                        JoJo'Store
                     </a>
                     <button
                         class="navbar-toggler d-lg-none"
@@ -57,7 +57,10 @@
                         </ul>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" href="login.html">
+                                <a
+                                    class="nav-link active"
+                                    href="login.html"
+                                    style="color: yellow">
                                     login
                                     <i class="bi bi-file-person"></i>
                                     <span class="visually-hidden">
@@ -73,8 +76,10 @@
         <main class="d-flex min-vh-100 bg-dark text-light">
             <form
                 class="m-auto bg-black p-5 rounded-5"
+                style="border: 1px yellow solid"
                 action="/login"
                 method="post">
+                <hr style="color: yellow" />
                 <div class="mb-3">
                     <label for="email" class="form-label">
                         <i class="bi bi-envelope-at"></i>
@@ -99,7 +104,8 @@
                         name="senha"
                         id="senha" />
                 </div>
-                <button type="submit" class="btn btn-primary mb-3">Entrar</button>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+                <hr style="color: yellow" />
                 <p class="m-0">
                     Não possui conta?
                     <a href="cadastro.html">Cadastrar</a>
