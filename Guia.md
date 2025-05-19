@@ -224,6 +224,34 @@ git checkout -b nome-da-branch origin/nome-da-branch
 
 ---
 
+## 🧹 PARTE 6: Remover branches
+
+### 🔻 Remover branch local
+
+```bash
+git branch -d nome-da-branch
+```
+
+> Remove a branch local se ela já foi mesclada.
+
+```bash
+git branch -D nome-da-branch
+```
+
+> Força a exclusão da branch local mesmo sem mesclar.
+
+---
+
+### 🌐 Remover branch remota
+
+```bash
+git push origin --delete nome-da-branch
+```
+
+> Remove a branch do repositório remoto (GitHub, GitLab, etc.).
+
+---
+
 ## 🧠 RESUMÃO DE COMANDOS ÚTEIS
 
 | Ação                     | Comando                                  |
