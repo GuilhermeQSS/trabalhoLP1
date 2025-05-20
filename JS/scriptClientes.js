@@ -1,7 +1,7 @@
 let urlBase = 'http://localhost:3000/Usuario'
 let listaDeUsuarios = [];
-async function obterDadosUsuario(){
-    await fetch(urlBase, {
+function obterDadosUsuario(){
+    fetch(urlBase, {
         method:"GET"
     })
     .then((res)=>{
