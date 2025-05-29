@@ -7,7 +7,7 @@ export function verificacaoAdmin(req, res, next) {
 }
 
 export function verificacaoUsuario(req, res, next) {
-    if (req.session.usuario) {
+    if (req.session.usuario || req.session.admin) {
         next();
     } else {
         res.redirect("/");

@@ -33,13 +33,13 @@ function obterDadosUsuarios() {
         });
 }
 obterDadosUsuarios();
-function cadastrarUsuario(cliente) {
+function cadastrarUsuario(usuario) {
     fetch(urlBase, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(cliente),
+        body: JSON.stringify(usuario),
     })
         .then((resposta) => {
             if (resposta.ok) {
@@ -47,11 +47,10 @@ function cadastrarUsuario(cliente) {
             }
         })
         .then((dados) => {
-            alert(`Cliente incluído com sucesso! ID:${dados.id}`);
-            dadosDosUsuariosNoSistema.push(cliente);
+            dadosDosUsuariosNoSistema.push(usuario);
         })
         .catch((erro) => {
-            alert("Erro ao cadastrar o cliente:" + erro);
+            console.log(erro);
         });
 }
 server.use(
@@ -80,11 +79,13 @@ server.post("/login", (req, res) => {
         )
     ) {
         req.session.usuario = true;
+        req.session.usuarioInfo = { email, senha };
         res.redirect("/indexLogado.html");
     } else {
         res.redirect("/login.html");
     }
 });
+
 server.post("/cadastro", (req, res) => {
     const { email, senha, confirmaSenha } = req.body;
     if (
@@ -92,13 +93,18 @@ server.post("/cadastro", (req, res) => {
         !dadosDosUsuariosNoSistema.some((usuario) => usuario.email == email)
     ) {
         cadastrarUsuario({ email, senha });
-        res.redirect("/login.html");
     }
     res.redirect("/login.html");
 });
 
-server.use(verificacaoAdmin, express.static("./private"));
+server.get("/dados", (req, res) => {
+    if (req.session.usuarioInfo != null) {
+        res.json(req.session.usuarioInfo);
+    }
+});
+
 server.use(verificacaoUsuario, express.static("./logado"));
+server.use(verificacaoAdmin, express.static("./private"));
 server.get("/deslogar", (req, res) => {
     req.session.destroy();
     res.redirect("/login.html");

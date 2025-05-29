@@ -31,7 +31,7 @@ function deletarCliente(id) {
             .then((cliente) => {
                 alert("Cliente excluído com sucesso!");
                 listaClientes = listaClientes.filter((cliente) => {
-                    return id !== cliente.id;
+                    return id != cliente.id;
                 });
                 atualizarTabela();
             })
