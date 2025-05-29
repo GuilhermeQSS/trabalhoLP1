@@ -43,7 +43,6 @@
                                 <a
                                     class="nav-link"
                                     href="admin.html"
-                                    style="color: yellow"
                                     aria-current="page">
                                     <i class="bi bi-house"></i>
                                     Home
@@ -56,6 +55,7 @@
                                 <a
                                     class="nav-link dropdown-toggle"
                                     href="#"
+                                    style="color: yellow"
                                     id="dropdownId"
                                     data-bs-toggle="dropdown"
                                     aria-haspopup="true"
@@ -73,7 +73,7 @@
                                     </a>
                                     <a
                                         class="dropdown-item"
-                                        href="/tabelas/tabelaUsuarios.html">
+                                        href="/tabelas/tabelaUsuario.html">
                                         Usuarios
                                     </a>
                                     <a class="dropdown-item" href="#">
@@ -105,11 +105,19 @@
         </header>
         <main class="d-flex flex-column min-vh-100 text-light bg-dark">
             <div
-                class="p-3 m-5 rounded-5 bg-black"
+                class="p-3 m-5 rounded-4 bg-black"
                 style="border: 1px yellow solid">
-                <h1>Olá admin</h1>
-                <hr style="color: yellow" />
-                <p>Seja bem vindo</p>
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">#usuarios</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Senha</th>
+                            <th scope="col">ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela"></tbody>
+                </table>
             </div>
         </main>
         <footer class="p-3 bg-black text-light">
@@ -120,6 +128,7 @@
                 <div>Enzo Luiz</div>
             </div>
         </footer>
+        <script src="/JS/scriptTabelaUsuarios.js"></script>
     </body>
     <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </html>

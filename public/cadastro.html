@@ -70,7 +70,7 @@
         <main class="d-flex min-vh-100 bg-dark text-light">
             <form
                 class="m-auto bg-black p-5 rounded-5"
-                action="/login"
+                action="/cadastro"
                 method="post">
                 <div class="mb-3">
                     <label for="email" class="form-label">
@@ -97,22 +97,22 @@
                         id="senha" />
                 </div>
                 <div class="mb-3">
-                    <label for="senha" class="form-label">
+                    <label for="confirmaSenha" class="form-label">
                         <i class="bi bi-key"></i>
                         Confirmar senha
                     </label>
                     <input
                         type="password"
                         class="form-control"
-                        name="senha"
-                        id="senha" />
+                        name="confirmaSenha"
+                        id="confirmaSenha" />
                 </div>
                 <button type="submit" class="btn btn-primary mb-3">
                     Entrar
                 </button>
                 <p class="m-0">
                     Voltar pro
-                    <a href="login.html">Login</a>
+                    <a href="/login.html">Login</a>
                 </p>
             </form>
         </main>
@@ -124,6 +124,7 @@
                 <div>Enzo Luiz</div>
             </div>
         </footer>
+        <script src="/JS/scriptCadastro.js"></script>
     </body>
     <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </html>

@@ -1,5 +1,13 @@
-export default function verificacaoAdmin(req, res, next) {
-    if (req.session.verificado) {
+export function verificacaoAdmin(req, res, next) {
+    if (req.session.admin) {
+        next();
+    } else {
+        res.redirect("/");
+    }
+}
+
+export function verificacaoUsuario(req, res, next) {
+    if (req.session.usuario) {
         next();
     } else {
         res.redirect("/");

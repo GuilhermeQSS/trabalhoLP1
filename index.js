@@ -10,11 +10,50 @@
 
 import express from "express";
 import session from "express-session";
-import verificacaoAdmin from "./seguranca/seguranca.js";
+import { verificacaoAdmin, verificacaoUsuario } from "./seguranca/seguranca.js";
 const server = express();
 const host = "0.0.0.0";
 const port = 3000;
-
+let urlBase = "http://localhost:4000/usuarios";
+let dadosDosUsuariosNoSistema = [];
+function obterDadosUsuarios() {
+    fetch(urlBase, {
+        method: "GET",
+    })
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            }
+        })
+        .then((usuarios) => {
+            dadosDosUsuariosNoSistema = usuarios;
+        })
+        .catch((erro) => {
+            alert(erro);
+        });
+}
+obterDadosUsuarios();
+function cadastrarUsuario(cliente) {
+    fetch(urlBase, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cliente),
+    })
+        .then((resposta) => {
+            if (resposta.ok) {
+                return resposta.json();
+            }
+        })
+        .then((dados) => {
+            alert(`Cliente incluído com sucesso! ID:${dados.id}`);
+            dadosDosUsuariosNoSistema.push(cliente);
+        })
+        .catch((erro) => {
+            alert("Erro ao cadastrar o cliente:" + erro);
+        });
+}
 server.use(
     session({
         secret: "fdsfdsfds",
@@ -32,20 +71,34 @@ server.use(express.static("./public"));
 server.get("/");
 server.post("/login", (req, res) => {
     const { email, senha } = req.body;
-    if (email == "admin@gmail.com" && senha == "admin") {
-        req.session.verificado = true;
+    if (email === "admin@gmail.com" && senha === "admin") {
+        req.session.admin = true;
         res.redirect("/admin.html");
+    } else if (
+        dadosDosUsuariosNoSistema.some(
+            (usuario) => usuario.email == email && usuario.senha == senha
+        )
+    ) {
+        req.session.usuario = true;
+        res.redirect("/indexLogado.html");
     } else {
-        res.redirect("/login.html"); //Exibir mensagem que o usuario ou o email estão errados
+        res.redirect("/login.html");
     }
-    //Usuario loga no site, ou seja, seu email e sua senha coincidiram com a que esta no nosso sistema
-    //if(dadosDosUsuariosNoSistema.some(usuario => usuario.email == email && usuario.senha == senha)){
-    //  <código>
-    //  res.redirect();
-    //}
+});
+server.post("/cadastro", (req, res) => {
+    const { email, senha, confirmaSenha } = req.body;
+    if (
+        senha == confirmaSenha &&
+        !dadosDosUsuariosNoSistema.some((usuario) => usuario.email == email)
+    ) {
+        cadastrarUsuario({ email, senha });
+        res.redirect("/login.html");
+    }
+    res.redirect("/login.html");
 });
 
 server.use(verificacaoAdmin, express.static("./private"));
+server.use(verificacaoUsuario, express.static("./logado"));
 server.get("/deslogar", (req, res) => {
     req.session.destroy();
     res.redirect("/login.html");
