@@ -1,7 +1,7 @@
-let urlBase = "http://localhost:4000/clientes";
-let listaClientes = [];
+let urlBase = "http://localhost:4000/produtos";
+let listaProdutos = [];
 
-function obterDadosClientes() {
+function obterDadosProdutos() {
     fetch(urlBase, {
         method: "GET",
     })
@@ -10,16 +10,16 @@ function obterDadosClientes() {
                 return res.json();
             }
         })
-        .then((clientes) => {
-            listaClientes = clientes;
+        .then((produtos) => {
+            listaProdutos = produtos;
             atualizarTabela();
         })
         .catch((erro) => {
             alert(erro);
         });
 }
-function deletarCliente(id) {
-    if (confirm("Deseja excluir o cliente: " + id + "?")) {
+function deletarProduto(id) {
+    if (confirm("Deseja excluir o produto: " + id + "?")) {
         fetch(urlBase + "/" + id, {
             method: "DELETE",
         })
@@ -28,10 +28,10 @@ function deletarCliente(id) {
                     return res.json();
                 }
             })
-            .then((cliente) => {
-                alert("Cliente excluído com sucesso!");
-                listaClientes = listaClientes.filter((cliente) => {
-                    return id != cliente.id;
+            .then((produto) => {
+                alert("Produto excluído com sucesso!");
+                listaProdutos = listaProdutos.filter((produto) => {
+                    return id != produto.id;
                 });
                 atualizarTabela();
             })
@@ -40,13 +40,13 @@ function deletarCliente(id) {
             });
     }
 }
-function cadastrarCliente(cliente) {
+function cadastrarProduto(produto) {
     fetch(urlBase, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(cliente),
+        body: JSON.stringify(produto),
     })
         .then((resposta) => {
             if (resposta.ok) {
@@ -54,29 +54,29 @@ function cadastrarCliente(cliente) {
             }
         })
         .then((dados) => {
-            alert(`Cliente incluído com sucesso! ID:${dados.id}`);
+            alert(`Produto incluído com sucesso! ID:${dados.id}`);
             atualizarTabela();
         })
         .catch((erro) => {
-            alert("Erro ao cadastrar o cliente:" + erro);
+            alert("Erro ao cadastrar o produto:" + erro);
         });
 }
 
 function atualizarTabela() {
     const tabela = document.getElementById("tabela");
     tabela.innerHTML = "";
-    listaClientes.forEach((cliente) => {
+    listaProdutos.forEach((produto) => {
         tabela.innerHTML += `
             <tr>
-                <td scope="row">${cliente.id}</td>
-                <td>${cliente.idUsuario}</td>
-                <td>${cliente.nome}</td>
-                <td>${cliente.cep}</td>
-                <td>${cliente.cpf}</td>
-                <td>${cliente.telefone}</td>
+                <td scope="row">${produto.id}</td>
+                <td>${produto.idCategoria}</td>
+                <td>${produto.idFornecedor}</td>
+                <td>${produto.nome}</td>
+                <td>${produto.preco}</td>
+                <td>${produto.qtde}</td>
                 <td>
                     <button
-                        onclick="deletarCliente('${cliente.id}')"
+                        onclick="deletarCategoria('${produto.id}')"
                         class="btn btn-danger">
                         <i class="bi bi-trash"></i>
                     </button>
@@ -85,4 +85,4 @@ function atualizarTabela() {
             `;
     });
 }
-obterDadosClientes();
+obterDadosProdutos();

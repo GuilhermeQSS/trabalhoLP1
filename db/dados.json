@@ -3,5 +3,12 @@
   "fornecedores": [],
   "entregadores": [],
   "produtos": [],
-  "usuarios": []
+  "categorias": [],
+  "usuarios": [
+    {
+      "id": "73bc",
+      "email": "guilherme@gmail.com",
+      "senha": "123"
+    }
+  ]
 }

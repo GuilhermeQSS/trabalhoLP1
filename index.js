@@ -2,8 +2,8 @@
 //[A] Sim para Todos
 //npm init
 //npm install
-//npm install -g node
-//npm install node-session
+//npm install express
+//npm install express-session
 //npm install -g json-server
 //node ${arquivo}.js
 //json-server -p ${porta} ${arquivo}.js
@@ -14,10 +14,12 @@ import { verificacaoAdmin, verificacaoUsuario } from "./seguranca/seguranca.js";
 const server = express();
 const host = "0.0.0.0";
 const port = 3000;
-let urlBase = "http://localhost:4000/usuarios";
-let dadosDosUsuariosNoSistema = [];
-function obterDadosUsuarios() {
-    fetch(urlBase, {
+let urlUsuarios = "http://localhost:4000/usuarios";
+let urlClientes = "http://localhost:4000/clientes";
+let dadosUsuarios = [];
+let dadosClientes = [];
+(function obterDadosUsuarios() {
+    fetch(urlUsuarios, {
         method: "GET",
     })
         .then((res) => {
@@ -26,15 +28,30 @@ function obterDadosUsuarios() {
             }
         })
         .then((usuarios) => {
-            dadosDosUsuariosNoSistema = usuarios;
+            dadosUsuarios = usuarios;
         })
         .catch((erro) => {
             alert(erro);
         });
-}
-obterDadosUsuarios();
+})();
+(function obterDadosClientes() {
+    fetch(urlUsuarios, {
+        method: "GET",
+    })
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            }
+        })
+        .then((clientes) => {
+            dadosClientes = clientes;
+        })
+        .catch((erro) => {
+            alert(erro);
+        });
+})();
 function cadastrarUsuario(usuario) {
-    fetch(urlBase, {
+    fetch(urlUsuarios, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -47,7 +64,7 @@ function cadastrarUsuario(usuario) {
             }
         })
         .then((dados) => {
-            dadosDosUsuariosNoSistema.push(usuario);
+            dadosUsuarios.push(usuario);
         })
         .catch((erro) => {
             console.log(erro);
@@ -67,7 +84,9 @@ server.use(
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static("./bibliotecas"));
 server.use(express.static("./public"));
-server.get("/");
+server.get("/", (req, res) => {
+    res.redirect("/index.html");
+});
 server.post("/login", (req, res) => {
     const { email, senha } = req.body;
     if (email === "admin@gmail.com" && senha === "admin") {
@@ -90,7 +109,7 @@ server.post("/cadastro", (req, res) => {
     const { email, senha, confirmaSenha } = req.body;
     if (
         senha == confirmaSenha &&
-        !dadosDosUsuariosNoSistema.some((usuario) => usuario.email == email)
+        !dadosUsuarios.some((usuario) => usuario.email == email)
     ) {
         cadastrarUsuario({ email, senha });
     }

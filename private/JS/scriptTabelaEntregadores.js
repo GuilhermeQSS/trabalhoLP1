@@ -1,7 +1,7 @@
-let urlBase = "http://localhost:4000/clientes";
-let listaClientes = [];
+let urlBase = "http://localhost:4000/entregadores";
+let listaEntregadores = [];
 
-function obterDadosClientes() {
+function obterDadosEntregadores() {
     fetch(urlBase, {
         method: "GET",
     })
@@ -10,16 +10,16 @@ function obterDadosClientes() {
                 return res.json();
             }
         })
-        .then((clientes) => {
-            listaClientes = clientes;
+        .then((entregadores) => {
+            listaEntregadores = entregadores;
             atualizarTabela();
         })
         .catch((erro) => {
             alert(erro);
         });
 }
-function deletarCliente(id) {
-    if (confirm("Deseja excluir o cliente: " + id + "?")) {
+function deletarEntregador(id) {
+    if (confirm("Deseja excluir o entregador: " + id + "?")) {
         fetch(urlBase + "/" + id, {
             method: "DELETE",
         })
@@ -28,10 +28,10 @@ function deletarCliente(id) {
                     return res.json();
                 }
             })
-            .then((cliente) => {
-                alert("Cliente excluído com sucesso!");
-                listaClientes = listaClientes.filter((cliente) => {
-                    return id != cliente.id;
+            .then((entregador) => {
+                alert("Entregador excluído com sucesso!");
+                listaEntregadores = listaEntregadores.filter((entregador) => {
+                    return id != entregador.id;
                 });
                 atualizarTabela();
             })
@@ -40,13 +40,13 @@ function deletarCliente(id) {
             });
     }
 }
-function cadastrarCliente(cliente) {
+function cadastrarEntregador(entregador) {
     fetch(urlBase, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(cliente),
+        body: JSON.stringify(entregador),
     })
         .then((resposta) => {
             if (resposta.ok) {
@@ -54,29 +54,29 @@ function cadastrarCliente(cliente) {
             }
         })
         .then((dados) => {
-            alert(`Cliente incluído com sucesso! ID:${dados.id}`);
+            alert(`Entregador incluído com sucesso! ID:${dados.id}`);
             atualizarTabela();
         })
         .catch((erro) => {
-            alert("Erro ao cadastrar o cliente:" + erro);
+            alert("Erro ao cadastrar o entregador:" + erro);
         });
 }
 
 function atualizarTabela() {
     const tabela = document.getElementById("tabela");
     tabela.innerHTML = "";
-    listaClientes.forEach((cliente) => {
+    listaEntregadores.forEach((entregador) => {
         tabela.innerHTML += `
             <tr>
-                <td scope="row">${cliente.id}</td>
-                <td>${cliente.idUsuario}</td>
-                <td>${cliente.nome}</td>
-                <td>${cliente.cep}</td>
-                <td>${cliente.cpf}</td>
-                <td>${cliente.telefone}</td>
+                <td scope="row">${entregador.id}</td>
+                <td>${entregador.nome}</td>
+                <td>${entregador.email}</td>
+                <td>${entregador.cpf}</td>
+                <td>${entregador.telefone}</td>
+                <td>${entregador.veiculo}</td>
                 <td>
                     <button
-                        onclick="deletarCliente('${cliente.id}')"
+                        onclick="deletarEntregador('${entregador.id}')"
                         class="btn btn-danger">
                         <i class="bi bi-trash"></i>
                     </button>
@@ -85,4 +85,4 @@ function atualizarTabela() {
             `;
     });
 }
-obterDadosClientes();
+obterDadosEntregadores();
