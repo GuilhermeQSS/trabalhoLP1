@@ -1,0 +1,28 @@
+{
+    "name": "trabalholp1",
+    "version": "1.0.0",
+    "description": "Trabalho de linguagens de programação 1",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "start": "node --watch index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GuilhermeQSS/trabalhoLP1.git"
+    },
+    "author": "Guilherme Leal, Guilherme Quintiliano, Enzo Luiz",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/GuilhermeQSS/trabalhoLP1/issues"
+    },
+    "homepage": "https://github.com/GuilhermeQSS/trabalhoLP1#readme",
+    "dependencies": {
+        "bootstrap": "^5.3.6",
+        "bootstrap-icons": "^1.13.1",
+        "express": "^5.1.0",
+        "express-session": "^1.18.1",
+        "json-server": "^1.0.0-beta.3"
+    }
+}
