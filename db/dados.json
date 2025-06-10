@@ -6,8 +6,23 @@
   "categorias": [],
   "usuarios": [
     {
-      "id": "73bc",
+      "id": "cc41",
+      "email": "penis@gmail.com",
+      "senha": "123"
+    },
+    {
+      "id": "04ea",
+      "email": "buceta@gmail.com",
+      "senha": "123"
+    },
+    {
+      "id": "8232",
       "email": "guilherme@gmail.com",
+      "senha": "123"
+    },
+    {
+      "id": "7075",
+      "email": "leal@gmail.com",
       "senha": "123"
     }
   ]

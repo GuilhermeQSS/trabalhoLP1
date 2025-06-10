@@ -31,11 +31,11 @@ let dadosClientes = [];
             dadosUsuarios = usuarios;
         })
         .catch((erro) => {
-            alert(erro);
+            console.log(erro);
         });
 })();
 (function obterDadosClientes() {
-    fetch(urlUsuarios, {
+    fetch(urlClientes, {
         method: "GET",
     })
         .then((res) => {
@@ -47,7 +47,7 @@ let dadosClientes = [];
             dadosClientes = clientes;
         })
         .catch((erro) => {
-            alert(erro);
+            console.log(erro);
         });
 })();
 function cadastrarUsuario(usuario) {
@@ -93,7 +93,7 @@ server.post("/login", (req, res) => {
         req.session.admin = true;
         res.redirect("/admin.html");
     } else if (
-        dadosDosUsuariosNoSistema.some(
+        dadosUsuarios.some(
             (usuario) => usuario.email == email && usuario.senha == senha
         )
     ) {

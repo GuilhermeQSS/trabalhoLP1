@@ -1,7 +1,7 @@
 let urlBase = "http://localhost:4000/usuarios";
 let listaUsuarios = [];
 
-function obterDadosUsuarios() {
+export function obterDadosUsuarios() {
     fetch(urlBase, {
         method: "GET",
     })
