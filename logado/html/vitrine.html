@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/IMG/FlechaJoJo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="/bootstrap-icons/font/bootstrap-icons.min.css"
+    />
+    <title>JoJo'Store - Produtos</title>
+  </head>
+  <body class="bg-black">
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-black">
+        <div class="container">
+          <a
+            class="navbar-brand d-flex align-items-center"
+            href="/indexLogado.html"
+          >
+            <img
+              src="/IMG/FlechaJoJo.png"
+              alt="Logo"
+              style="height: 40px"
+              class="me-2"
+            />
+            JoJo'Store
+          </a>
+          <button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="/indexLogado.html"
+                  aria-current="page"
+                >
+                  <i class="bi bi-house"></i>
+                  Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  style="color: yellow"
+                  href="/html/vitrine.html"
+                >
+                  <i class="bi bi-bag"></i>
+                  Produtos
+                </a>
+              </li>
+            </ul>
+            <ul class="navbar-nav" id="usuario">
+              <li class="nav-item">
+                <a class="nav-link" href="/html/perfil.html">
+                  Perfil
+                  <i class="bi bi-person-circle"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/deslogar">
+                  Sair
+                  <i class="bi bi-box-arrow-right"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="d-flex min-vh-100 flex-column text-light bg-dark">
+      <div class="p-3 m-5 rounded-5 bg-black" style="border: 1px yellow solid">
+        <h1>Veja nosso catálogo</h1>
+        <hr style="color: yellow" />
+        <div
+          id="vitrine"
+          class="d-flex justify-content-around flex-wrap gap-4"
+        ></div>
+      </div>
+    </main>
+
+    <footer class="p-3 bg-black text-light">
+      <div class="text-center">Trabalho por:</div>
+      <div class="d-flex flex-row justify-content-center gap-5">
+        <div>G. Leal</div>
+        <div>G. Quintiliano</div>
+        <div>Enzo Luiz</div>
+      </div>
+    </footer>
+
+    <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/JS/scriptVitrine.js"></script>
+  </body>
+</html>
