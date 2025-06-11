@@ -1,16 +1,16 @@
 {
   "clientes": [
     {
-      "id": "4f96",
-      "idUsuario": "7075",
-      "nome": "Nome",
-      "cep": "00000-000",
-      "cpf": "000.000.000-00",
-      "telefone": "(00) 00000-0000"
+      "id": "d779",
+      "idUsuario": "b8f2",
+      "nome": "Enzo Luiz",
+      "cep": "19570-000",
+      "cpf": "12332112312",
+      "telefone": "18666666666"
     },
     {
-      "id": "487b",
-      "idUsuario": "b8f2",
+      "id": "db3e",
+      "idUsuario": "130d",
       "nome": "Nome",
       "cep": "00000-000",
       "cpf": "000.000.000-00",
@@ -36,6 +36,11 @@
       "id": "b8f2",
       "email": "enzo@gmail.com",
       "senha": "123"
+    },
+    {
+      "id": "130d",
+      "email": "malzahar@gmail.com",
+      "senha": "iruli"
     }
   ]
 }

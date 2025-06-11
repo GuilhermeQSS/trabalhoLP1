@@ -1,24 +1,14 @@
-//set-ExecutionPolicy unrestricted
-//[A] Sim para Todos
-//npm init
-//npm install
-//npm install express
-//npm install express-session
-//npm install -g json-server
-//node ${arquivo}.js
-//json-server -p ${porta} ${arquivo}.js
-
 import express from 'express';
 import session from 'express-session';
 import { verificacaoAdmin, verificacaoUsuario } from './seguranca/seguranca.js';
+
 const server = express();
 const host = '0.0.0.0';
 const port = 3000;
-let urlUsuarios = 'http://localhost:4000/usuarios';
-let urlClientes = 'http://localhost:4000/clientes';
-let dadosUsuarios = [];
-let dadosClientes = [];
-let urlFornecedores = 'http://localhost:4000/fornecedores';
+
+const urlUsuarios = 'http://localhost:4000/usuarios';
+const urlClientes = 'http://localhost:4000/clientes';
+const urlFornecedores = 'http://localhost:4000/fornecedores';
 
 function cadastrarFornecedor(fornecedor) {
   return fetch(urlFornecedores, {
@@ -31,131 +21,74 @@ function cadastrarFornecedor(fornecedor) {
   });
 }
 
-(function obterDadosUsuarios() {
-  fetch(urlUsuarios, {
-    method: 'GET',
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then((usuarios) => {
-      dadosUsuarios = usuarios;
-    })
+function obterDadosUsuarios() {
+  return fetch(urlUsuarios)
+    .then((res) => (res.ok ? res.json() : []))
     .catch((erro) => {
-      console.log(erro);
+      console.log('Erro ao obter usuários:', erro);
+      return [];
     });
-})();
+}
 
-(function obterDadosClientes() {
-  fetch(urlClientes, {
-    method: 'GET',
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then((clientes) => {
-      dadosClientes = clientes;
-    })
+function obterDadosClientes() {
+  return fetch(urlClientes)
+    .then((res) => (res.ok ? res.json() : []))
     .catch((erro) => {
-      console.log(erro);
+      console.log('Erro ao obter clientes:', erro);
+      return [];
     });
-})();
+}
 
 function cadastrarUsuario(usuario) {
-  fetch(urlUsuarios, {
+  return fetch(urlUsuarios, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(usuario),
   })
-    .then((resposta) => {
-      if (resposta.ok) {
-        return resposta.json();
-      }
-    })
-    .then((dados) => {
-      dadosUsuarios.push(usuario);
-    })
+    .then((res) => (res.ok ? res.json() : null))
     .catch((erro) => {
-      console.log(erro);
+      console.log('Erro ao cadastrar usuário:', erro);
+      return null;
     });
 }
 
 function cadastrarCliente(cliente) {
-  fetch(urlClientes, {
+
+  return fetch(urlClientes, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(cliente),
   })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then((dados) => {
-      dadosClientes.push(dados);
-    })
+    .then((res) => (res.ok ? res.json() : null))
     .catch((erro) => {
-      console.log(erro);
+      console.log('Erro ao cadastrar cliente:', erro);
+      return null;
     });
 }
 
 function atualizarUsuario(usuario, idUsuario) {
-  fetch(`${urlUsuarios}/${idUsuario}`, {
+  return fetch(`${urlUsuarios}/${idUsuario}`, {
     method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(usuario),
   })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then((dados) => {
-      const index = dadosUsuarios.findIndex((u) => u.id === dados.id);
-      if (index !== -1) {
-        dadosUsuarios.splice(index, 1, dados);
-      } else {
-        dadosUsuarios.push(dados);
-      }
-    })
+    .then((res) => (res.ok ? res.json() : null))
     .catch((erro) => {
-      console.log(erro);
+      console.log('Erro ao atualizar usuário:', erro);
+      return null;
     });
 }
 
 function atualizarCliente(cliente, idCliente) {
-  fetch(`${urlClientes}/${idCliente}`, {
+  return fetch(`${urlClientes}/${idCliente}`, {
     method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(cliente),
   })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then((dados) => {
-      const index = dadosClientes.findIndex((c) => c.id === dados.id);
-      if (index !== -1) {
-        dadosClientes.splice(index, 1, dados);
-      } else {
-        dadosClientes.push(dados);
-      }
-    })
+    .then((res) => (res.ok ? res.json() : null))
     .catch((erro) => {
-      console.log(erro);
+      console.log('Erro ao atualizar cliente:', erro);
+      return null;
     });
 }
 
@@ -173,6 +106,7 @@ server.use(
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static('./bibliotecas'));
 server.use(express.static('./public'));
+
 server.get('/', (req, res) => {
   res.redirect('/index.html');
 });
@@ -192,91 +126,117 @@ server.post('/fornecedores', express.json(), (req, res) => {
 
 server.post('/login', (req, res) => {
   const { email, senha } = req.body;
+
   if (email === 'admin@gmail.com' && senha === 'admin') {
     req.session.admin = true;
     res.redirect('/admin.html');
-  } else if (
-    dadosUsuarios.some(
-      (usuario) => usuario.email == email && usuario.senha == senha,
-    )
-  ) {
-    req.session.usuario = true;
-    req.session.usuarioInfo = { email, senha };
-    const usuario = dadosUsuarios.find(
-      (u) => u.email === req.session.usuarioInfo.email,
-    );
-
-    const clienteExistente = dadosClientes.find(
-      (c) => c.idUsuario === usuario.id,
-    );
-
-    if (!clienteExistente) {
-      const cliente = {
-        idUsuario: usuario.id,
-        nome: 'Nome',
-        cep: '00000-000',
-        cpf: '000.000.000-00',
-        telefone: '(00) 00000-0000',
-      };
-      cadastrarCliente(cliente);
-    }
-    res.redirect('/indexLogado.html');
   } else {
-    res.redirect('/login.html');
+    obterDadosUsuarios().then((usuarios) => {
+      const usuario = usuarios.find(
+        (u) => u.email === email && u.senha === senha,
+      );
+      if (usuario) {
+        req.session.usuario = true;
+        req.session.usuarioInfo = { email, senha };
+
+        obterDadosClientes().then((clientes) => {
+          const clienteExistente = clientes.find(
+            (c) => c.idUsuario === usuario.id,
+          );
+          if (!clienteExistente) {
+            const cliente = {
+              idUsuario: usuario.id,
+              nome: 'Nome',
+              cep: '00000-000',
+              cpf: '000.000.000-00',
+              telefone: '(00) 00000-0000',
+            };
+            cadastrarCliente(cliente).then(() => {
+              res.redirect('/indexLogado.html');
+            });
+          } else {
+            res.redirect('/indexLogado.html');
+          }
+        });
+      } else {
+        res.redirect('/login.html');
+      }
+    });
   }
 });
 
 server.post('/cadastro', (req, res) => {
   const { email, senha, confirmaSenha } = req.body;
-  if (
-    senha == confirmaSenha &&
-    !dadosUsuarios.some((usuario) => usuario.email == email)
-  ) {
-    cadastrarUsuario({ email, senha });
+
+  if (senha === confirmaSenha) {
+    obterDadosUsuarios().then((usuarios) => {
+      const jaExiste = usuarios.some((u) => u.email === email);
+      if (!jaExiste) {
+        cadastrarUsuario({ email, senha }).then(() => {
+          res.redirect('/login.html');
+        });
+      } else {
+        res.redirect('/login.html');
+      }
+    });
+  } else {
+    res.redirect('/login.html');
   }
-  res.redirect('/login.html');
 });
 
 server.post('/editar-perfil', (req, res) => {
   const { nome, cep, cpf, telefone } = req.body;
   const { email } = req.session.usuarioInfo;
-  const usuarioExistente = dadosUsuarios.find((u) => u.email == email);
-  const clienteExistente = dadosClientes.find(
-    (c) => c.idUsuario == usuarioExistente.id,
-  );
-  const idCliente = clienteExistente.id;
-  const cliente = {
-    nome,
-    cep,
-    cpf,
-    telefone,
-  };
-  atualizarCliente(cliente, idCliente);
-  res.redirect('html/perfil.html');
+
+  obterDadosUsuarios().then((usuarios) => {
+    const usuario = usuarios.find((u) => u.email === email);
+    if (usuario) {
+      obterDadosClientes().then((clientes) => {
+        const cliente = clientes.find((c) => c.idUsuario === usuario.id);
+        if (cliente) {
+          atualizarCliente({ nome, cep, cpf, telefone }, cliente.id).then(
+            () => {
+              res.redirect('html/perfil.html');
+            },
+          );
+        } else {
+          res.redirect('/indexLogado.html');
+        }
+      });
+    } else {
+      res.redirect('/login.html');
+    }
+  });
 });
 
 server.get('/dados', (req, res) => {
-  if (req.session.usuarioInfo != null) {
+  if (req.session.usuarioInfo) {
     res.json(req.session.usuarioInfo);
   }
 });
 
 server.get('/logado', (req, res) => {
-  if (req.session.usuarioInfo != null) {
-    const usuario = dadosUsuarios.find(
-      (u) => u.email === req.session.usuarioInfo.email,
-    );
-    const cliente = dadosClientes.find((c) => c.idUsuario === usuario?.id);
-    if (usuario && cliente) {
-      res.json({
-        nome: cliente.nome,
-        cep: cliente.cep,
-        cpf: cliente.cpf,
-        telefone: cliente.telefone,
-        email: usuario.email,
-        senha: usuario.senha,
-      });
-    }
+  if (req.session.usuarioInfo) {
+    obterDadosUsuarios().then((usuarios) => {
+      const usuario = usuarios.find(
+        (u) => u.email === req.session.usuarioInfo.email,
+      );
+      if (usuario) {
+        obterDadosClientes().then((clientes) => {
+          const cliente = clientes.find((c) => c.idUsuario === usuario.id);
+          if (cliente) {
+            res.json({
+              nome: cliente.nome,
+              cep: cliente.cep,
+              cpf: cliente.cpf,
+              telefone: cliente.telefone,
+              email: usuario.email,
+              senha: usuario.senha,
+            });
+          }
+        });
+      }
+    });
   }
 });
 

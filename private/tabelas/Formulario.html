@@ -1,150 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
-        <link
-            rel="shortcut icon"
-            href="/IMG/FlechaJoJo.png"
-            type="image/x-icon" />
-        <link
-            rel="stylesheet"
-            href="/bootstrap-icons/font/bootstrap-icons.min.css" />
-        <title>JoJo'Store</title>
-</head>
-<body class="bg-black">
-     <header>
-            <nav class="navbar navbar-expand-sm navbar-dark bg-black">
-                <div class="container">
-                    <a
-                        class="navbar-brand d-flex align-items-center"
-                        href="/admin.html">
-                        <img
-                            src="/IMG/FlechaJoJo.png"
-                            alt="Logo"
-                            style="height: 40px"
-                            class="me-2" />
-                        JoJo'Store
-                    </a>
-                    <button
-                        class="navbar-toggler d-lg-none"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapsibleNavId"
-                        aria-controls="collapsibleNavId"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="collapsibleNavId">
-                        <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                            <li class="nav-item">
-                                <a
-                                    class="nav-link"
-                                    href="/admin.html"
-                                    aria-current="page">
-                                    <i class="bi bi-house"></i>
-                                    Home
-                                    <span class="visually-hidden">
-                                        (current)
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    style="color: yellow"
-                                    id="dropdownId"
-                                    data-bs-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false">
-                                    <i class="bi bi-table"></i>
-                                    Tabelas
-                                </a>
-                                <div
-                                    class="dropdown-menu"
-                                    aria-labelledby="dropdownId">
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/Formulario.html">
-                                        Formulario
-                                    </a>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/tabelaClientes.html">
-                                        Clientes
-                                    </a>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/tabelaUsuarios.html">
-                                        Usuarios
-                                    </a>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/tabelaProdutos.html">
-                                        Produtos
-                                    </a>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/tabelaFornecedores.html">
-                                        Fornecedores
-                                    </a>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/tabelaEntregadores.html">
-                                        Entregadores
-                                    </a>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/tabelaCategorias.html">
-                                        Categorias
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/deslogar">
-                                    Sair
-                                    <i class="bi bi-box-arrow-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <main class="d-flex flex-column min-vh-100 text-light bg-dark">
-  <h1>Cadastro de Fornecedor</h1>
-  <form id="formFornecedor">
-    <label for="nome">Nome:</label><br/>
-    <input type="text" id="nome" name="nome" required /><br/><br/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/IMG/FlechaJoJo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.min.css" />
+    <title>Cadastro de Fornecedor - JoJo'Store</title>
+  </head>
 
-    <label for="Email">Email:</label><br/>
-    <input type="email" id="email" name="email" required /><br/><br/>
+  <body class="bg-black text-light">
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-black">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center" href="/admin.html">
+            <img src="/IMG/FlechaJoJo.png" alt="Logo" style="height: 40px" class="me-2" />
+            JoJo'Store
+          </a>
+        </div>
+      </nav>
+    </header>
 
-    <label for="telefone">Telefone:</label><br/>
-    <input type="tel" id="telefone" name="telefone" required /><br/><br/>
-    
-    <label for="cnpj">CNPJ:</label><br/>
-    <input type="text" id="cnpj" name="cnpj" required /><br/><br/>
+    <main class="d-flex min-vh-100 bg-dark">
+      <form
+        id="formFornecedor"
+        class="m-auto bg-black p-5 w-50 rounded-5 border border-warning"
+      >
+        <h2 class="text-center mb-4">Cadastro de Fornecedor</h2>
 
-    <button type="submit">Cadastrar Fornecedor</button>
-  </form>
+        <div class="mb-3">
+          <label for="nome" class="form-label">
+            <i class="bi bi-person-badge"></i> Nome
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome"
+            name="nome"
+            placeholder="Nome do fornecedor"
+            required
+          />
+        </div>
 
-  <div id="mensagem"></div>
-  </main>
-  <footer class="p-3 bg-black text-light">
-            <div class="text-center">Trabalho por:</div>
-            <div class="d-flex flex-row justify-content-center gap-5">
-                <div>G. Leal</div>
-                <div>G. Quintiliano</div>
-                <div>Enzo Luiz</div>
-            </div>
-        </footer>
+        <div class="mb-3">
+          <label for="email" class="form-label">
+            <i class="bi bi-envelope"></i> Email
+          </label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="email@exemplo.com"
+            required
+          />
+        </div>
 
-  <script src="../JS/scriptFormulario.js"></script>
-</body>
+        <div class="mb-3">
+          <label for="telefone" class="form-label">
+            <i class="bi bi-telephone"></i> Telefone
+          </label>
+          <input
+            type="tel"
+            class="form-control"
+            id="telefone"
+            name="telefone"
+            placeholder="(00) 00000-0000"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="cnpj" class="form-label">
+            <i class="bi bi-briefcase"></i> CNPJ
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="cnpj"
+            name="cnpj"
+            placeholder="00.000.000/0000-00"
+            required
+          />
+        </div>
+
+        <div class="text-end">
+          <button type="submit" class="btn btn-warning">
+            Cadastrar Fornecedor
+          </button>
+        </div>
+
+        <div id="mensagem" class="mt-3 text-center"></div>
+      </form>
+    </main>
+
+    <footer class="p-3 bg-black text-light text-center">
+      <div>Trabalho por:</div>
+      <div class="d-flex flex-row justify-content-center gap-5">
+        <div>G. Leal</div>
+        <div>G. Quintiliano</div>
+        <div>Enzo Luiz</div>
+      </div>
+    </footer>
+
+    <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/scriptFormulario.js"></script>
+  </body>
 </html>
