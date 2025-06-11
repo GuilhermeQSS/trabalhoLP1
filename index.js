@@ -13,6 +13,18 @@ const urlProdutos = 'http://localhost:4000/produtos';
 const urlEntregadores = "http://localhost:4000/entregadores";
 const urlCategorias = "http://localhost:4000/categorias";
 
+function recuperarFornecedor(fornecedor) {
+  return fetch(urlFornecedores, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(fornecedor),
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+  });
+}
+
 function cadastrarCategorias(categoria) {
   return fetch(urlCategorias, {
     method: 'POST',
@@ -172,6 +184,18 @@ server.post('/fornecedores', express.json(), (req, res) => {
   const fornecedor = req.body;
 
   cadastrarFornecedor(fornecedor)
+    .then((dados) => {
+      res.json(dados);
+    })
+    .catch((erro) => {
+      console.log(erro);
+    });
+});
+
+server.post('/fornecedores2', express.json(), (req, res) => {
+  const fornecedor = req.body;
+
+  recuperarFornecedor(fornecedor)
     .then((dados) => {
       res.json(dados);
     })

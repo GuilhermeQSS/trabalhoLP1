@@ -67,6 +67,7 @@ function atualizarTabela() {
     tabela.innerHTML += `
       <tr>
         <td scope="row">${fornecedor.id}</td>
+        <td>${fornecedor.nome}</td>
         <td>${fornecedor.email}</td>
         <td>${fornecedor.telefone || ""}</td>
         <td>${fornecedor.cnpj}</td>
