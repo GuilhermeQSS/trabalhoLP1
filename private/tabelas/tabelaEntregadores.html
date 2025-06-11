@@ -46,9 +46,7 @@
                                     aria-current="page">
                                     <i class="bi bi-house"></i>
                                     Home
-                                    <span class="visually-hidden">
-                                        (current)
-                                    </span>
+                                    <span class="visually-hidden">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
@@ -63,44 +61,13 @@
                                     <i class="bi bi-table"></i>
                                     Tabelas
                                 </a>
-                                <div
-                                    class="dropdown-menu"
-                                    aria-labelledby="dropdownId">
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/Formulario.html">
-                                        Formulario
-                                    </a>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/tabelaClientes.html">
-                                        Clientes
-                                    </a>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/tabelaUsuarios.html">
-                                        Usuarios
-                                    </a>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/tabelaProdutos.html">
-                                        Produtos
-                                    </a>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/tabelaFornecedores.html">
-                                        Fornecedores
-                                    </a>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/tabelaEntregadores.html">
-                                        Entregadores
-                                    </a>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/tabelas/tabelaCategorias.html">
-                                        Categorias
-                                    </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                    <a class="dropdown-item" href="/tabelas/tabelaClientes.html">Clientes</a>
+                                    <a class="dropdown-item" href="/tabelas/tabelaUsuarios.html">Usuarios</a>
+                                    <a class="dropdown-item" href="/tabelas/tabelaProdutos.html">Produtos</a>
+                                    <a class="dropdown-item" href="/tabelas/tabelaFornecedores.html">Fornecedores</a>
+                                    <a class="dropdown-item" href="/tabelas/tabelaEntregadores.html">Entregadores</a>
+                                    <a class="dropdown-item" href="/tabelas/tabelaCategorias.html">Categorias</a>
                                 </div>
                             </li>
                         </ul>
@@ -117,9 +84,12 @@
             </nav>
         </header>
         <main class="d-flex flex-column min-vh-100 text-light bg-dark">
-            <div
-                class="p-3 m-5 rounded-4 bg-black"
-                style="border: 1px yellow solid">
+            <div class="p-3 m-5 rounded-4 bg-black" style="border: 1px yellow solid">
+                <div class="mb-4 text-end">
+                    <a href="/tabelas/FormEntregadores.html" class="btn btn-warning">
+                        <i class="bi bi-plus-circle"></i> Novo Entregador
+                    </a>
+                </div>
                 <table class="table table-dark">
                     <thead>
                         <tr>
@@ -144,7 +114,7 @@
                 <div>Enzo Luiz</div>
             </div>
         </footer>
-        <script src="/JS/scriptClientes.js"></script>
+        <script src="/JS/scriptTabelaEntregadores.js"></script>
+        <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     </body>
-    <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </html>

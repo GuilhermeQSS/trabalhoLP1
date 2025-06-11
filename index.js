@@ -9,6 +9,40 @@ const port = 3000;
 const urlUsuarios = 'http://localhost:4000/usuarios';
 const urlClientes = 'http://localhost:4000/clientes';
 const urlFornecedores = 'http://localhost:4000/fornecedores';
+const urlProdutos = 'http://localhost:4000/produtos';
+const urlEntregadores = "http://localhost:4000/entregadores";
+const urlCategorias = "http://localhost:4000/categorias";
+
+function cadastrarCategorias(categoria) {
+  return fetch(urlCategorias, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(categoria),
+  }).then(res => {
+    if (res.ok){return res.json();}
+  });
+}
+
+
+function cadastrarEntregadores(entregador) {
+  return fetch(urlEntregadores, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(entregador),
+  }).then(res => {
+    if (res.ok){return res.json();}
+  });
+}
+
+function cadastrarProdutos(produto) {
+  return fetch(urlProdutos, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(produto),
+  }).then(res => {
+    if (res.ok){return res.json();}
+  });
+}
 
 function cadastrarFornecedor(fornecedor) {
   return fetch(urlFornecedores, {
@@ -16,8 +50,7 @@ function cadastrarFornecedor(fornecedor) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(fornecedor),
   }).then(res => {
-    if (!res.ok) throw new Error('Erro ao cadastrar fornecedor no JSON-server');
-    return res.json();
+    if (res.ok){return res.json();}
   });
 }
 
@@ -111,16 +144,51 @@ server.get('/', (req, res) => {
   res.redirect('/index.html');
 });
 
+server.post('/categorias', express.json(), (req, res) => {
+  const categoria = req.body;
+
+  cadastrarCategorias(categoria)
+    .then(dados => {
+      res.json(dados);
+    })
+    .catch(erro => {
+      console.log(erro);
+    });
+});
+
+server.post('/entregadores', express.json(), (req, res) => {
+  const entregador = req.body;
+
+  cadastrarEntregadores(entregador)
+    .then(dados => {
+      res.json(dados);
+    })
+    .catch(erro => {
+      console.log(erro);
+    });
+});
+
+server.post('/produtos', express.json(), (req, res) => {
+  const produto = req.body;
+
+  cadastrarProdutos(produto)
+    .then(dados => {
+      res.json(dados);
+    })
+    .catch(erro => {
+      console.log(erro);
+    });
+});
+
 server.post('/fornecedores', express.json(), (req, res) => {
   const fornecedor = req.body;
 
   cadastrarFornecedor(fornecedor)
     .then(dados => {
-      res.status(201).json(dados);
+      res.json(dados);
     })
-    .catch(err => {
-      console.error(err);
-      res.status(500).json({ error: 'Erro interno ao cadastrar fornecedor' });
+    .catch(erro => {
+      console.log(erro);
     });
 });
 

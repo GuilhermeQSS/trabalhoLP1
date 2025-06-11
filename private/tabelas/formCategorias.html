@@ -2,13 +2,12 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/IMG/FlechaJoJo.png" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.min.css" />
-    <title>Cadastro de Fornecedor - JoJo'Store</title>
+    <link rel="shortcut icon" href="/IMG/FlechaJoJo.png" type="image/x-icon" />
+    <title>Cadastro de Categorias - JoJo'Store</title>
   </head>
-
   <body class="bg-black text-light">
     <header>
       <nav class="navbar navbar-expand-sm navbar-dark bg-black">
@@ -23,71 +22,40 @@
 
     <main class="d-flex min-vh-100 bg-dark">
       <form
-        id="formFornecedor"
+        id="formCategoria"
         class="m-auto bg-black p-5 w-50 rounded-5 border border-warning"
       >
-        <h2 class="text-center mb-4">Cadastro de Fornecedor</h2>
+        <h2 class="text-center mb-4">Cadastro de Categoria</h2>
 
         <div class="mb-3">
           <label for="nome" class="form-label">
-            <i class="bi bi-person-badge"></i> Nome
+            <i class="bi bi-tag"></i> Nome
           </label>
           <input
             type="text"
             class="form-control"
             id="nome"
             name="nome"
-            placeholder="Nome do fornecedor"
+            placeholder="Nome da categoria"
             required
           />
         </div>
 
         <div class="mb-3">
-          <label for="email" class="form-label">
-            <i class="bi bi-envelope"></i> Email
+          <label for="descricao" class="form-label">
+            <i class="bi bi-card-text"></i> Descrição
           </label>
-          <input
-            type="email"
+          <textarea
             class="form-control"
-            id="email"
-            name="email"
-            placeholder="email@exemplo.com"
-            required
-          />
-        </div>
-
-        <div class="mb-3">
-          <label for="telefone" class="form-label">
-            <i class="bi bi-telephone"></i> Telefone
-          </label>
-          <input
-            type="tel"
-            class="form-control"
-            id="telefone"
-            name="telefone"
-            placeholder="(00) 00000-0000"
-            required
-          />
-        </div>
-
-        <div class="mb-3">
-          <label for="cnpj" class="form-label">
-            <i class="bi bi-briefcase"></i> CNPJ
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            id="cnpj"
-            name="cnpj"
-            placeholder="00.000.000/0000-00"
-            required
-          />
+            id="descricao"
+            name="descricao"
+            rows="3"
+            placeholder="Descrição da categoria"
+          ></textarea>
         </div>
 
         <div class="text-end">
-          <button type="submit" class="btn btn-warning">
-            Cadastrar Fornecedor
-          </button>
+          <button type="submit" class="btn btn-warning">Cadastrar Categoria</button>
         </div>
 
         <div id="mensagem" class="mt-3 text-center"></div>
@@ -104,6 +72,6 @@
     </footer>
 
     <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../JS/scriptFormulario.js"></script>
+    <script src="/JS/scriptFormCategorias.js"></script>
   </body>
 </html>

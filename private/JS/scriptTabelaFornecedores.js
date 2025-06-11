@@ -6,9 +6,7 @@ function obterDadosFornecedores() {
     .then((res) => {
       if (res.ok) {
         return res.json();
-      } else {
-        throw new Error("Erro ao obter fornecedores");
-      }
+      } 
     })
     .then((fornecedores) => {
       listaFornecedores = fornecedores;
@@ -25,8 +23,6 @@ function deletarFornecedor(id) {
       .then((res) => {
         if (res.ok) {
           return res.json();
-        } else {
-          throw new Error("Erro ao deletar fornecedor");
         }
       })
       .then(() => {
@@ -51,8 +47,6 @@ function cadastrarFornecedor(fornecedor) {
     .then((res) => {
       if (res.ok) {
         return res.json();
-      } else {
-        throw new Error("Erro ao cadastrar fornecedor");
       }
     })
     .then((dados) => {
