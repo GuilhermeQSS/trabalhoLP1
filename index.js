@@ -49,8 +49,10 @@ function cadastrarFornecedor(fornecedor) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(fornecedor),
-  }).then(res => {
-    if (res.ok){return res.json();}
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
   });
 }
 
@@ -58,7 +60,7 @@ function obterDadosUsuarios() {
   return fetch(urlUsuarios)
     .then((res) => (res.ok ? res.json() : []))
     .catch((erro) => {
-      console.log('Erro ao obter usuários:', erro);
+      console.log(erro);
       return [];
     });
 }
@@ -67,7 +69,7 @@ function obterDadosClientes() {
   return fetch(urlClientes)
     .then((res) => (res.ok ? res.json() : []))
     .catch((erro) => {
-      console.log('Erro ao obter clientes:', erro);
+      console.log(erro);
       return [];
     });
 }
@@ -80,13 +82,12 @@ function cadastrarUsuario(usuario) {
   })
     .then((res) => (res.ok ? res.json() : null))
     .catch((erro) => {
-      console.log('Erro ao cadastrar usuário:', erro);
+      console.log(erro);
       return null;
     });
 }
 
 function cadastrarCliente(cliente) {
-
   return fetch(urlClientes, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -94,20 +95,7 @@ function cadastrarCliente(cliente) {
   })
     .then((res) => (res.ok ? res.json() : null))
     .catch((erro) => {
-      console.log('Erro ao cadastrar cliente:', erro);
-      return null;
-    });
-}
-
-function atualizarUsuario(usuario, idUsuario) {
-  return fetch(`${urlUsuarios}/${idUsuario}`, {
-    method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(usuario),
-  })
-    .then((res) => (res.ok ? res.json() : null))
-    .catch((erro) => {
-      console.log('Erro ao atualizar usuário:', erro);
+      console.log(erro);
       return null;
     });
 }
@@ -184,10 +172,10 @@ server.post('/fornecedores', express.json(), (req, res) => {
   const fornecedor = req.body;
 
   cadastrarFornecedor(fornecedor)
-    .then(dados => {
+    .then((dados) => {
       res.json(dados);
     })
-    .catch(erro => {
+    .catch((erro) => {
       console.log(erro);
     });
 });

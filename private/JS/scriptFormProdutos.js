@@ -2,11 +2,11 @@ document.getElementById('formProdutos').addEventListener('submit', function (e) 
   e.preventDefault();
 
   const nome = document.getElementById('nome').value;
-  const preco = document.getElementById('preco').value;
+  const preco = Number(document.getElementById('preco').value);
   const qtde = document.getElementById('qtde').value;
   const cat = document.getElementById('cat').value;
   const fornecedor = document.getElementById('fornecedor').value;
-
+  
   const produtos = { nome, preco, qtde, cat, fornecedor };
 
   fetch('/produtos', {
