@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+        <link
+            rel="shortcut icon"
+            href="/IMG/FlechaJoJo.png"
+            type="image/x-icon" />
+        <link
+            rel="stylesheet"
+            href="/bootstrap-icons/font/bootstrap-icons.min.css" />
+        <title>JoJo'Store</title>
+    </head>
+    <body class="bg-black">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-black">
+                <div class="container">
+                    <a
+                        class="navbar-brand d-flex align-items-center"
+                        href="/admin.html">
+                        <img
+                            src="/IMG/FlechaJoJo.png"
+                            alt="Logo"
+                            style="height: 40px"
+                            class="me-2" />
+                        JoJo'Store
+                    </a>
+                    <button
+                        class="navbar-toggler d-lg-none"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapsibleNavId"
+                        aria-controls="collapsibleNavId"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link"
+                                    href="/admin.html"
+                                    aria-current="page">
+                                    <i class="bi bi-house"></i>
+                                    Home
+                                    <span class="visually-hidden">
+                                        (current)
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    style="color: yellow"
+                                    id="dropdownId"
+                                    data-bs-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <i class="bi bi-table"></i>
+                                    Tabelas
+                                </a>
+                                <div
+                                    class="dropdown-menu"
+                                    aria-labelledby="dropdownId">
+                                    <a
+                                        class="dropdown-item"
+                                        href="/tabelas/tabelaClientes.html">
+                                        Clientes
+                                    </a>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/tabelas/tabelaUsuarios.html">
+                                        Usuarios
+                                    </a>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/tabelas/tabelaProdutos.html">
+                                        Produtos
+                                    </a>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/tabelas/tabelaFornecedores.html">
+                                        Fornecedores
+                                    </a>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/tabelas/tabelaEntregadores.html">
+                                        Entregadores
+                                    </a>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/tabelas/tabelaCategorias.html">
+                                        Categorias
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/deslogar">
+                                    Sair
+                                    <i class="bi bi-box-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="d-flex flex-column min-vh-100 text-light bg-dark">
+            <div
+                class="p-3 m-5 rounded-4 bg-black"
+                style="border: 1px yellow solid">
+                <div class="mb-4 text-end">
+            <a href="/tabelas/FormFornecedores.html" class="btn btn-warning">
+                <i class="bi bi-plus-circle"></i> Novo Fornecedor
+            </a>
+        </div>
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">#Fornecedores</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Telefone</th>
+                            <th scope="col">CPF/CNPJ</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela"></tbody>
+                </table>
+            </div>
+        </main>
+        <footer class="p-3 bg-black text-light">
+            <div class="text-center">Trabalho por:</div>
+            <div class="d-flex flex-row justify-content-center gap-5">
+                <div>G. Leal</div>
+                <div>G. Quintiliano</div>
+                <div>Enzo Luiz</div>
+            </div>
+        </footer>
+        <script src="/JS/scriptTabelaFornecedores.js"></script>
+    </body>
+    <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</html>

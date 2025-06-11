@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/IMG/FlechaJoJo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="/bootstrap-icons/font/bootstrap-icons.min.css"
+    />
+    <title>JoJo'Store</title>
+  </head>
+  <body class="bg-black">
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-black">
+        <div class="container">
+          <a
+            class="navbar-brand d-flex align-items-center"
+            href="/indexLogado.html"
+          >
+            <img
+              src="/IMG/FlechaJoJo.png"
+              alt="Logo"
+              style="height: 40px"
+              class="me-2"
+            />
+            JoJo'Store
+          </a>
+          <button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  style="color: yellow"
+                  href="/indexLogado.html"
+                  aria-current="page"
+                >
+                  <i class="bi bi-house"></i>
+                  Home
+                  <span class="visually-hidden"> (current) </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/html/vitrine.html">
+                  <i class="bi bi-bag"></i>
+                  Produtos
+                </a>
+              </li>
+            </ul>
+            <ul class="navbar-nav" id="usuario">
+              <li class="nav-item">
+                <a class="nav-link" href="/html/perfil.html">
+                  Perfil
+                  <i class="bi bi-person-circle"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/deslogar">
+                  Sair
+                  <i class="bi bi-box-arrow-right"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="d-flex min-vh-100 flex-column text-light bg-dark">
+      <div class="p-3 m-5 rounded-5 bg-black" style="border: 1px yellow solid">
+        <h1>Bem-vindo à JoJo' Store !</h1>
+        <hr style="color: yellow" />
+        <p class="fs-5">
+          Está pronto para embarcar em uma aventura extraordinária? Aqui na
+          JoJo'store, você encontra tudo o que precisa para liberar seu Stand
+          com estilo!
+        </p>
+        <p class="fs-5">
+          Roupas icônicas, acessórios lendários e produtos exclusivos inspirados
+          no universo de
+          <em>JoJo's Bizarre Adventure</em>
+          . Seja um verdadeiro Joestar com visual à altura.
+        </p>
+      </div>
+      <div class="p-3 m-5 rounded-5 bg-black" style="border: 1px yellow solid">
+        <h1>Veja nosso catálogo</h1>
+        <hr style="color: yellow" />
+        <div class="d-flex justify-content-around">
+          <div class="card bg-dark text-light" style="width: 18rem">
+            <img
+              src="/IMG/camiseta_jotaro.jpg"
+              class="card-img-top"
+              alt="Camiseta Jotaro"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Camiseta Jotaro Kujo</h5>
+              <p class="card-text">
+                Vista-se como um verdadeiro Stand User com essa camiseta
+                estilosa inspirada no Jotaro. Disponível do P ao GG.
+              </p>
+              <a href="#" class="card-link text-warning"> Ver detalhes </a>
+              <a href="#" class="card-link text-warning"> Comprar </a>
+            </div>
+          </div>
+          <div class="card bg-dark text-light" style="width: 18rem">
+            <img
+              src="/IMG/bone_dio.jpg"
+              class="card-img-top"
+              alt="Boné Dio Brando"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Boné Dio Brando</h5>
+              <p class="card-text">
+                "ZA WARUDO!" — Estilo e poder combinados nesse boné premium com
+                bordado dourado inspirado no vilão mais icônico da série.
+              </p>
+              <a href="#" class="card-link text-warning"> Ver detalhes </a>
+              <a href="#" class="card-link text-warning"> Comprar </a>
+            </div>
+          </div>
+          <div class="card bg-dark text-light" style="width: 18rem">
+            <img
+              src="/IMG/pingente_flecha.jpg"
+              class="card-img-top"
+              alt="Pingente Flecha JoJo"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Pingente Flecha Stand</h5>
+              <p class="card-text">
+                Um acessório místico e elegante. Ideal para quem deseja ativar
+                seu Stand interior com estilo.
+              </p>
+              <a href="#" class="card-link text-warning"> Ver detalhes </a>
+              <a href="#" class="card-link text-warning"> Comprar </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="p-3 bg-black text-light">
+      <div class="text-center">Trabalho por:</div>
+      <div class="d-flex flex-row justify-content-center gap-5">
+        <div>G. Leal</div>
+        <div>G. Quintiliano</div>
+        <div>Enzo Luiz</div>
+      </div>
+    </footer>
+    <script src="/JS/scriptIndexLogado.js"></script>
+  </body>
+  <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</html>

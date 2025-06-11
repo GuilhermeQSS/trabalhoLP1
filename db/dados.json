@@ -1,0 +1,46 @@
+{
+  "clientes": [
+    {
+      "id": "d779",
+      "idUsuario": "b8f2",
+      "nome": "Enzo Luiz",
+      "cep": "19570-000",
+      "cpf": "12332112312",
+      "telefone": "18666666666"
+    },
+    {
+      "id": "db3e",
+      "idUsuario": "130d",
+      "nome": "Nome",
+      "cep": "00000-000",
+      "cpf": "000.000.000-00",
+      "telefone": "(00) 00000-0000"
+    }
+  ],
+  "fornecedores": [],
+  "entregadores": [],
+  "produtos": [],
+  "categorias": [],
+  "usuarios": [
+    {
+      "id": "8232",
+      "email": "guilherme@gmail.com",
+      "senha": "123"
+    },
+    {
+      "id": "7075",
+      "email": "leal@gmail.com",
+      "senha": "123"
+    },
+    {
+      "id": "b8f2",
+      "email": "enzo@gmail.com",
+      "senha": "123"
+    },
+    {
+      "id": "130d",
+      "email": "malzahar@gmail.com",
+      "senha": "iruli"
+    }
+  ]
+}
